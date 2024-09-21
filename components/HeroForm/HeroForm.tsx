@@ -4,11 +4,13 @@ import { Search, Calendar, Users } from 'lucide-react';
 const HeroForm = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [suggestions, setSuggestions] = useState([]);
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+
+  const availableTags = ['Adventure', 'Sightseeing', 'Trek', 'Leisure', 'Relaxation', 'Cultural'];
 
   // Mock function to fetch suggestions
-  const fetchSuggestions = async (term) => {
-    // Replace this with actual API call
-    const mockSuggestions = ['Paris', 'New York', 'Tokyo', 'London', 'Rome', 'New Jersey',].filter(city => 
+  const fetchSuggestions = async (term: string) => {
+    const mockSuggestions = ['Paris', 'New York', 'Tokyo', 'London', 'Rome', 'New Jersey'].filter(city =>
       city.toLowerCase().includes(term.toLowerCase())
     );
     return mockSuggestions;
@@ -22,23 +24,29 @@ const HeroForm = () => {
     }
   }, [searchTerm]);
 
+  const toggleTag = (tag: string) => {
+    setSelectedTags((prevTags) =>
+      prevTags.includes(tag) ? prevTags.filter((t) => t !== tag) : [...prevTags, tag]
+    );
+  };
+
   return (
-    <div className="mt-16 w-full max-w-4xl bg-white bg-opacity-20 backdrop-filter backdrop-blur-lg p-6 rounded-lg flex flex-wrap gap-4 animate-fade-in-up animation-delay-900">
-      <div className="flex-grow flex items-center bg-white bg-opacity-30 rounded-lg px-4 py-2 relative">
-        <Search className="text-gray-600 mr-2" />
+    <div className="mt-10 w-full max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+      <div className="flex items-center bg-gray-100 rounded-lg px-4 py-2 mb-4">
+        <Search className="text-gray-500 mr-3" />
         <input
           type="text"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           placeholder="Where do you want to go?"
-          className="bg-transparent text-gray-900 placeholder-gray-600 focus:outline-none flex-grow"
+          className="bg-transparent text-gray-900 placeholder-gray-500 focus:outline-none w-full"
         />
         {suggestions.length > 0 && (
-          <ul className="absolute top-full left-0 right-0 bg-white bg-opacity-90 backdrop-filter backdrop-blur-lg mt-1 rounded-lg shadow-lg z-30">
+          <ul className="absolute top-full left-0 right-0 bg-white mt-1 rounded-lg shadow-lg z-30">
             {suggestions.map((suggestion, index) => (
-              <li 
+              <li
                 key={index}
-                className="px-4 py-2 hover:bg-white hover:bg-opacity-100 cursor-pointer text-gray-900 transition duration-300 ease-in-out text-left"
+                className="px-4 py-2 hover:bg-blue-100 cursor-pointer text-gray-900"
                 onClick={() => {
                   setSearchTerm(suggestion);
                   setSuggestions([]);
@@ -50,33 +58,58 @@ const HeroForm = () => {
           </ul>
         )}
       </div>
-      <div className="flex items-center bg-white bg-opacity-30 rounded-lg px-4 py-2">
-        <Calendar className="text-gray-600 mr-2" />
-        <input
-          type="date"
-          placeholder="Check in"
-          className="bg-transparent text-gray-900 placeholder-gray-600 focus:outline-none"
-        />
+
+      <div className="flex space-x-4 mb-4">
+        <div className="flex items-center bg-gray-100 rounded-lg px-4 py-2 w-full">
+          <Calendar className="text-gray-500 mr-3" />
+          <input
+            type="date"
+            placeholder="Check in"
+            className="bg-transparent text-gray-900 placeholder-gray-500 focus:outline-none w-full"
+          />
+        </div>
+        <div className="flex items-center bg-gray-100 rounded-lg px-4 py-2 w-full">
+          <Calendar className="text-gray-500 mr-3" />
+          <input
+            type="date"
+            placeholder="Check out"
+            className="bg-transparent text-gray-900 placeholder-gray-500 focus:outline-none w-full"
+          />
+        </div>
+        <div className="flex items-center bg-gray-100 rounded-lg px-4 py-2 w-full">
+          <Users className="text-gray-500 mr-3" />
+          <select className="bg-transparent text-gray-900 focus:outline-none w-full">
+            <option value="" disabled selected hidden>
+              Guests
+            </option>
+            <option value="1">1 Guest</option>
+            <option value="2">2 Guests</option>
+            <option value="3">3 Guests</option>
+            <option value="4">4+ Guests</option>
+          </select>
+        </div>
       </div>
-      <div className="flex items-center bg-white bg-opacity-30 rounded-lg px-4 py-2">
-        <Calendar className="text-gray-600 mr-2" />
-        <input
-          type="date"
-          placeholder="Check out"
-          className="bg-transparent text-gray-900 placeholder-gray-600 focus:outline-none"
-        />
+
+      <div className="w-full mb-4">
+        <p className="text-sm text-gray-700 font-semibold mb-2">What would you like to do?</p>
+        <div className="flex flex-wrap gap-2">
+          {availableTags.map((tag) => (
+            <button
+              key={tag}
+              onClick={() => toggleTag(tag)}
+              className={`px-4 py-2 rounded-full text-sm font-medium ${
+                selectedTags.includes(tag)
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-gray-200 text-gray-700'
+              } hover:bg-blue-500 hover:text-white transition-colors`}
+            >
+              {tag}
+            </button>
+          ))}
+        </div>
       </div>
-      <div className="flex items-center bg-white bg-opacity-30 rounded-lg px-4 py-2">
-        <Users className="text-gray-600 mr-2" />
-        <select className="bg-transparent text-gray-900 focus:outline-none">
-          <option value="" disabled selected hidden>Guests</option>
-          <option value="1">1 Guest</option>
-          <option value="2">2 Guests</option>
-          <option value="3">3 Guests</option>
-          <option value="4">4+ Guests</option>
-        </select>
-      </div>
-      <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
+
+      <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
         Search
       </button>
     </div>

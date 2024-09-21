@@ -57,7 +57,7 @@ const options: NextAuthOptions = {
           id: data.user.id,
           email: data.user.email,
           name: data.user.email?.split('@')[0] || 'User',
-          phone: data.user.phone || '', // Ensure phone is included
+          phone: data.user.phone || '', 
         };
       },
     }),
