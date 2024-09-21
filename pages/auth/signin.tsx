@@ -1,29 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
+import Navbar from '@/components/Navbar/Navbar';
 
 export default function SignIn() {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-white">
+    <>
+    <Navbar/>
+    <div className="flex items-center justify-center min-h-screen bg-white -mt-20">
       <div className="w-full max-w-md p-8">
-        <a className="mt-10 w-fit text-black" href="/">
-          <div className="flex w-fit items-center lg:pl-0 lg:pt-0 xl:pt-0">
-            <svg
-              stroke="currentColor"
-              fill="currentColor"
-              strokeWidth="0"
-              viewBox="0 0 320 512"
-              className="mr-3 h-[13px] w-[8px] text-black"
-              height="1em"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"></path>
-            </svg>
-            <p className="ml-0 text-sm text-black">Back to the website</p>
-          </div>
-        </a>
 
-        <div className="my-auto mb-auto mt-8 flex flex-col md:mt-[70px] w-[350px] max-w-[450px] mx-auto md:max-w-[450px] lg:mt-[130px] lg:max-w-[450px]">
+        <div className="my-auto mb-auto mt-8 flex flex-col md:mt-[1px] w-[350px] max-w-[450px] mx-auto md:max-w-[450px] lg:max-w-[450px]">
           <p className="text-[32px] font-bold text-black">Sign In</p>
           <p className="mb-2.5 mt-2.5 font-normal text-black">
             Enter your email and password to sign in!
@@ -137,5 +123,6 @@ c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.
         </div>
       </div>
     </div>
+    </>
   );
 }

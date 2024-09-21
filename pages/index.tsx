@@ -1,4 +1,4 @@
-import HeroSection from '@/components/Hero/Hero'
+import HeroSection from '@/components/HeroSection/HeroSection'
 import React from 'react'
 
 function Index() {
