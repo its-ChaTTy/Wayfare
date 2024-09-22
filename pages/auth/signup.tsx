@@ -2,6 +2,7 @@ import { signIn } from 'next-auth/react';  // Import NextAuth signIn function
 import Link from 'next/link';
 import { useState } from 'react';
 import { useRouter } from 'next/router';  // Import useRouter from next/router
+import { FaArrowLeft } from 'react-icons/fa';  // Import the back icon from react-icons
 
 const RegisterPage = () => {
   const router = useRouter();  // Initialize useRouter for navigation
@@ -51,7 +52,13 @@ const RegisterPage = () => {
 
   return (
     <div className="font-sans bg-gradient-to-r flex items-center justify-center min-h-screen p-4">
-      <div className="w-full max-w-4xl max-md:max-w-xl mx-auto bg-white rounded-lg shadow-lg p-8">
+      <Link href="/">
+          <div className="absolute top-4 left-4 text-gray-600 hover:text-gray-800 transition duration-300">
+            <FaArrowLeft size={24} />
+          </div>
+        </Link>
+      <div className="w-full max-w-4xl max-md:max-w-xl mx-auto bg-white rounded-lg shadow-lg p-8 relative">
+
         <div className="grid md:grid-cols-2 gap-16">
           {/* Left side - Google login and text */}
           <div className="max-md:order-1 space-y-6">

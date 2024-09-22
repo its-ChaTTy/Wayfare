@@ -1,5 +1,7 @@
-import { signIn } from 'next-auth/react';  // Import the signIn method for NextAuth
+import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
+import { FaArrowLeft } from 'react-icons/fa';
+import Link from 'next/link';
 
 export default function SignIn() {
   const router = useRouter();
@@ -12,18 +14,23 @@ export default function SignIn() {
     const result = await signIn('credentials', { redirect: false, email, password });
 
     if (result?.ok) {
-      router.push('/travel');  // Redirect to the travel page upon successful login
+      router.push('/travel'); 
     } else {
       console.error('Error signing in');
     }
   };
 
   const handleGoogleSignIn = () => {
-    signIn('google', { callbackUrl: '/travel' });  // Redirect to the travel page after Google sign-in
+    signIn('google', { callbackUrl: '/travel' });
   };
 
   return (
     <div className="font-sans bg-gradient-to-r flex items-center justify-center min-h-screen p-4">
+      <Link href="/">
+          <div className="absolute top-4 left-4 text-gray-600 hover:text-gray-800 transition duration-300">
+            <FaArrowLeft size={24} />
+          </div>
+      </Link>
       <div className="w-full max-w-4xl max-md:max-w-xl mx-auto bg-white rounded-lg shadow-lg p-8">
         <div className="flex flex-col items-center">
           <h3 className="text-4xl font-extrabold text-indigo-800 mb-6">Welcome Back</h3>
@@ -66,12 +73,11 @@ export default function SignIn() {
             </button>
           </form>
 
-          {/* Divider or some space between credential and Google sign-in */}
+
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-500">or sign in with</p>
           </div>
 
-          {/* Google Sign In Button */}
           <button
             onClick={handleGoogleSignIn}
             className="mt-4 w-full px-5 py-3 flex items-center justify-center rounded-lg bg-white border border-gray-300 text-gray-800 text-base font-semibold hover:bg-gray-50 shadow-lg transition duration-300"

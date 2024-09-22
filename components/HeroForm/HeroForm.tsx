@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { Search, Calendar, Users } from 'lucide-react';
 
 const HeroForm = () => {
+  const router = useRouter();
   const [searchTerm, setSearchTerm] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
@@ -28,6 +30,10 @@ const HeroForm = () => {
     setSelectedTags((prevTags) =>
       prevTags.includes(tag) ? prevTags.filter((t) => t !== tag) : [...prevTags, tag]
     );
+  };
+
+  const handleGenerate = () => {
+    router.push('/explore');
   };
 
   return (
@@ -109,8 +115,11 @@ const HeroForm = () => {
         </div>
       </div>
 
-      <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
-        Search
+      <button
+        onClick={handleGenerate}
+        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105"
+      >
+        Generate
       </button>
     </div>
   );
