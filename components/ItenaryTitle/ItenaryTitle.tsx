@@ -1,14 +1,18 @@
 import React from 'react';
 import { MdInfo, MdMap, MdPhoto, MdStar, MdEventNote } from "react-icons/md";
 
-const ItenaryTitle = () => {
+interface ItenaryTitleProps {
+  destination: string;
+}
+
+const ItenaryTitle: React.FC<ItenaryTitleProps> = ({ destination }) => {
   return (
     <div className="relative h-[500px]">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: 'url(travel1.jpg)', // Replace with your image path
+          backgroundImage: 'url(travel1.jpg)',
         }}
       />
 
@@ -24,12 +28,12 @@ const ItenaryTitle = () => {
 
         {/* Title */}
         <h1 className="text-5xl font-bold text-white max-w-lg leading-tight">
-          A Cusco & Salkantay Trekking to Machu Picchu
+          Your Journey to {destination}
         </h1>
       </div>
 
       {/* Tab Navigation */}
-        <div className="relative z-10 -mt-10 bg-white py-4 px-8 flex justify-between items-center max-w-4xl mx-auto shadow-lg rounded-lg">
+      <div className="relative z-10 -mt-10 bg-white py-4 px-8 flex justify-between items-center max-w-4xl mx-auto shadow-lg rounded-lg">
         <TabItem icon={MdInfo} label="Information" />
         <TabItem icon={MdEventNote} label="Tour Plan" />
         <TabItem icon={MdMap} label="Location" />

@@ -2,7 +2,7 @@ import React from 'react';
 import TravelCardList from '../components/TravelCardList/TravelcardList';
 import HeroForm from '../components/HeroForm/HeroForm';
 
-const App: React.FC = () => {
+const Travel: React.FC = () => {
 
   return (
     <div className="App">
@@ -17,4 +17,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default Travel;

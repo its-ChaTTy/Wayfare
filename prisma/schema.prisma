@@ -1,3 +1,12 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("NEXT_PUBLIC_SUPABASE_URL")
+}
+
 model User {
   id            Int             @id @default(autoincrement())
   email         String          @unique
