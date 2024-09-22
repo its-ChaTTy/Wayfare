@@ -35,7 +35,7 @@ const ItenaryCard: React.FC<ItineraryProps> = ({ itinerary }) => {
             <ul className="list-none space-y-2">
               {day.services.map((service, serviceIndex) => (
                 <li key={serviceIndex} className="flex items-center">
-                  <span className="material-icons text-green-500 mr-2">check_circle</span>
+                  <span className="text-green-500 mr-2">✓</span> {/* Updated icon */}
                   {service}
                 </li>
               ))}

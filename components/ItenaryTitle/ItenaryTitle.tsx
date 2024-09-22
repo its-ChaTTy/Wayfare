@@ -1,9 +1,12 @@
 import React from 'react';
 import { MdInfo, MdMap, MdPhoto, MdStar, MdEventNote } from "react-icons/md";
+import Navbar from '../Navbar/Navbar';
 
 const ItenaryTitle = () => {
   return (
-    <div className="relative h-[500px]">
+    <>
+    <Navbar />
+    <div className="relative h-[500px] -mt-20">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
@@ -19,12 +22,12 @@ const ItenaryTitle = () => {
       <div className="relative z-10 h-full flex flex-col justify-center items-start px-8">
         {/* Breadcrumb */}
         <p className="text-white text-lg mb-2">
-          <span className="font-light">Home</span> · <span className="font-light">Package Details</span>
+          <span className="font-light">6D</span> · <span className="font-light">5N</span>
         </p>
 
         {/* Title */}
         <h1 className="text-5xl font-bold text-white max-w-lg leading-tight">
-          A Cusco & Salkantay Trekking to Machu Picchu
+          A Sightseeing & trekking trip to Manali
         </h1>
       </div>
 
@@ -34,9 +37,9 @@ const ItenaryTitle = () => {
         <TabItem icon={MdEventNote} label="Tour Plan" />
         <TabItem icon={MdMap} label="Location" />
         <TabItem icon={MdPhoto} label="Gallery" />
-        <TabItem icon={MdStar} label="Review" />
       </div>
     </div>
+    </>
   );
 };
 

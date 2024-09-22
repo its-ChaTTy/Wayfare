@@ -3,46 +3,52 @@ import TravelCard from '../TravelCard/TravelCard';
 
 const travelData = [
   {
-    imageUrl: 'travel1.jpg',
-    title: 'Cusco & Salkantay Trekking To Machu',
+    imageUrl: 'taj-mahal.jpeg',
+    title: 'Explore the Taj Mahal in Agra',
+    days: 2,
+    price: 200,
+  },
+  {
+    imageUrl: 'Kerala_Backwaters.jpg',
+    title: 'Backwaters of Kerala',
+    days: 4,
+    price: 350,
+  },
+  {
+    imageUrl: 'desert-safari.jpg',
+    title: 'Desert Safari in Rajasthan',
+    days: 5,
+    price: 450,
+  },
+  {
+    imageUrl: 'manali-trek.jpeg',
+    title: 'Himalayan Trekking in Himachal Pradesh',
+    days: 7,
+    price: 600,
+  },
+  {
+    imageUrl: 'goa.jpg',
+    title: 'Beach Vacation in Goa',
+    days: 3,
+    price: 300,
+  },
+  {
+    imageUrl: 'varanasi.jpeg',
+    title: 'Cultural Tour of Varanasi',
     days: 3,
     price: 250,
   },
   {
-    imageUrl: 'travel1.jpg',
-    title: 'Explore the Great Wall of China',
-    days: 5,
+    imageUrl: 'corbet.jpeg',
+    title: 'Wildlife Safari in Jim Corbett National Park',
+    days: 4,
     price: 400,
   },
   {
-    imageUrl: 'travel1.jpg',
-    title: 'Safari Adventure in Kenya',
-    days: 7,
-    price: 600,
-  },
-  {
-    imageUrl: 'travel1.jpg',
-    title: 'Safari Adventure in Kenya',
-    days: 7,
-    price: 600,
-  },
-  {
-    imageUrl: 'travel1.jpg',
-    title: 'Safari Adventure in Kenya',
-    days: 7,
-    price: 600,
-  },
-  {
-    imageUrl: 'travel1.jpg',
-    title: 'Safari Adventure in Kenya',
-    days: 7,
-    price: 600,
-  },
-  {
-    imageUrl: 'travel1.jpg',
-    title: 'Safari Adventure in Kenya',
-    days: 7,
-    price: 600,
+    imageUrl: 'tamil.jpeg',
+    title: 'Explore the Temples of Tamil Nadu',
+    days: 6,
+    price: 500,
   },
   // Add more travel data as needed
 ];

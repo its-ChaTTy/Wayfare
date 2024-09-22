@@ -5,13 +5,32 @@ interface ImageData {
   alt: string;
 }
 
+// Replace with actual image URLs related to Manali
 const images: ImageData[] = [
-  { src: "travel1.jpg", alt: "Beautiful landscape" },
-  { src: "travel1.jpg", alt: "Night cityscape" },
-  { src: "travel1.jpg", alt: "Lake view" },
-  { src: "travel1.jpg", alt: "Mountain adventure" },
-  { src: "travel1.jpg", alt: "Photography day" },
-  { src: "travel1.jpg", alt: "Sunset surfing" },
+  { 
+    src: "manali1.jpeg",
+    alt: "Breathtaking landscape view of Manali valley" 
+  },
+  { 
+    src: "manali2.jpeg",
+    alt: "The serene Hadimba Devi Temple amidst cedar trees" 
+  },
+  { 
+    src: "manali3.jpeg",
+    alt: "Tourists enjoying paragliding in Solang Valley" 
+  },
+  { 
+    src: "manali4.jpeg",
+    alt: "Hikers on the trail to Jogini Falls" 
+  },
+  { 
+    src: "manali5.jpeg",
+    alt: "Panoramic view of snow-covered Rohtang Pass" 
+  },
+  { 
+    src: "manali6.jpeg",
+    alt: "Colorful local market in Manali" 
+  },
 ];
 
 const ItenaryGallery: React.FC = () => {
@@ -19,8 +38,7 @@ const ItenaryGallery: React.FC = () => {
     <div className="mt-10 max-w-screen-md mx-auto">
       <h1 className="text-4xl font-bold text-center mb-6">Gallery</h1>
       <p className="text-center text-gray-500 mb-8">
-        Duis id interdum ex, eu accumsan massa. Fusce vel nibh diam. Nulla ultrices
-        ex at erat pharetra, vitae viverra mauris condimentum.
+        Get a glimpse of the beauty that awaits you in Manali!
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {images.map((image, index) => (
