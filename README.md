@@ -1,68 +1,94 @@
-# NextJS Boilerplate with TypeScript, SCSS, NextAuth
+# Personalized Travel Itinerary Generator
 
-## Introduction
-This project serves as a boilerplate for Next.js applications with TypeScript, SCSS, and NextAuth. It provides a solid foundation for building web applications with features such as authentication, styling, and database connectivity.
-
-## Getting Started
-To get started with this project, follow these steps:
-
-1. Clone the repository:
-```bash
-git clone <repository-url>
-```
-
-2. Install the dependencies:
-```bash
-npm install
-```
-
-3. Set up environment variables:
-Create a `.env` file in the root directory and add the following variables:
-```bash
-DATABASE_URL="postgres://postgres:postgres@localhost:5432/next-auth"
-NEXTAUTH_URL="http://localhost:3000"
-NEXTAUTH_SECRET="your_next_auth_secret"
-NEXT_PUBLIC_EMAIL="abc@abc.com"
-NEXT_PUBLIC_EMAIL_PASSWORD="your_email_password"
-```
-you can ignore the `NEXT_PUBLIC_EMAIL` and `NEXT_PUBLIC_EMAIL_PASSWORD` if you don't want to send emails.
-
-4. Change the database type in `prisma/schema.prisma`:
-
-5. Run the development server:
-```bash
-npm run dev
-```
+This project is a **Personalized Travel Itinerary Generator**, where users can log in with their credentials (or using Google OAuth), and generate personalized travel itineraries based on their preferences. The application is built using **Next.js**, **Tailwind CSS**, **Supabase**, **Prisma**, and supports **NextAuth** for authentication.
 
 ## Features
-- Prisma: Database connectivity
-- Chakra UI: Component library for styling
-- NextAuth: Authentication
-- SCSS: Styling preprocessor
-- NodeMailer: Email sending capability
-- Tailwind CSS: Utility-first CSS framework
 
-## Docs
+- **Email/Password & Google OAuth Authentication** via **NextAuth**.
+- Users can generate personalized travel itineraries based on their preferences.
+- Tailwind CSS for responsive and modern UI.
+- Supabase as the backend for data storage and user management.
+- Prisma ORM for database interactions.
 
-- **Protected API Route** - `/pages/api/user/fetch.ts` is a protected route that requires authentication. If the user is not authenticated, they will be sent a 401 status code and unauthorized message. Also see `/lib/auth.ts` for the authentication logic.
+## Tech Stack
 
-- **Checking User Session in ServerSideProps** - You can check if the user is authenticated in the `getServerSideProps` function of a page by using the `getSession` function from NextAuth. See `/pages/meow.tsx` for an example.
+- **Frontend**: Next.js, Tailwind CSS
+- **Backend**: Supabase, Prisma
+- **Authentication**: NextAuth (with Email/Password and Google OAuth)
+- **Database**: PostgreSQL (via Supabase)
 
-- **Fetching the user in the client side** - You can fetch the user in the client side by using the `useSession` hook from NextAuth. See `/pages/meow.tsx` for an example.
+## Prerequisites
 
+Make sure you have the following installed:
 
-Notes:
-1. If you change the database type in `prisma/schema.prisma`, you need to run the following command to generate the Prisma client:
-```
-npx prisma generate
-```
+- [Node.js](https://nodejs.org/) (v14 or higher)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+- [Supabase](https://supabase.io/) account
+- [Prisma](https://www.prisma.io/)
+- [NextAuth](https://next-auth.js.org/)
 
-2. If you change the Prisma schema, you need to run the following command to update the database:
-```
-npx prisma db push
-```
+## Installation
 
-3. To run prisma studio, run the following command:
-```
-npx prisma studio
-```
+### 1. Clone the repository:
+
+- ```bash
+- git clone https://github.com/your-username/travel-itinerary-generator.git
+- cd travel-itinerary-generator
+
+### 2. Install dependencies:
+
+- npm install
+- or
+- yarn install
+### 3. Set up environment variables:
+- Create a .env.local file at the root of the project and add your environment variables:
+
+- NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
+- NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+
+- NEXTAUTH_URL=http://localhost:3000
+- NEXTAUTH_SECRET=your-nextauth-secret
+
+- GOOGLE_CLIENT_ID=your-google-client-id
+- GOOGLE_CLIENT_SECRET=your-google-client-secret
+
+### 4. Set up Prisma and Supabase:
+- Make sure you have a Supabase project with PostgreSQL as your database. Then, set up Prisma:
+
+- npx prisma generate
+- npx prisma migrate dev
+
+### 5. Run the application:
+
+- npm run dev
+-  or
+- yarn dev
+
+The app will be available at http://localhost:3000.
+
+Usage
+Sign In:
+
+You can sign in using email/password or via Google OAuth.
+Generate Itinerary:
+
+After signing in, you'll be redirected to the travel itinerary dashboard, where you can generate personalized itineraries based on your input.
+Explore Now Button:
+
+The "Explore Now" button sticks to the bottom of the itinerary card, allowing users to easily start exploring their itinerary.
+Deployment
+To deploy this application, you can use services like Vercel or Netlify. Follow the instructions for deploying a Next.js application.
+
+For Vercel:
+
+vercel
+Contributing
+Feel free to open an issue or submit a pull request if you'd like to contribute to this project.
+
+License
+This project is licensed under the MIT License.
+
+python
+Copy code
+
+This is the complete `README.md` code in the requested format.
