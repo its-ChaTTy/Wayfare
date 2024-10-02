@@ -66,29 +66,22 @@ Make sure you have the following installed:
 
 The app will be available at http://localhost:3000.
 
-Usage
-Sign In:
+## Usage
+
+### Sign In:
 
 You can sign in using email/password or via Google OAuth.
-Generate Itinerary:
+
+### Generate Itinerary:
 
 After signing in, you'll be redirected to the travel itinerary dashboard, where you can generate personalized itineraries based on your input.
-Explore Now Button:
 
 The "Explore Now" button sticks to the bottom of the itinerary card, allowing users to easily start exploring their itinerary.
 Deployment
-To deploy this application, you can use services like Vercel or Netlify. Follow the instructions for deploying a Next.js application.
 
-For Vercel:
+## Contributing
 
-vercel
-Contributing
 Feel free to open an issue or submit a pull request if you'd like to contribute to this project.
 
-License
+## License
 This project is licensed under the MIT License.
-
-python
-Copy code
-
-This is the complete `README.md` code in the requested format.
